@@ -1,25 +1,28 @@
 <template>
   <div id="app" class="base-vue">
-    <!-- <a href="/">base</a>
-    <a href="/app1">vue</a>
-    <a href="/app2">vue</a> -->
+
+    <!-- 切换子应用和主应用菜单列表 -->
     <ul class="menu-parent-list">
-      <li v-for="item in menu" :key="item.name" @click="checkMenu(item)">
+      <li class="menu-item" :class="{active:acitveClass(item.index)}" v-for="item in menu"
+          :key="item.name" @click="checkMenu(item)">
         <span class="iconfont" :class="item.icon"></span>
         <span>{{item.name}}</span>
       </li>
     </ul>
+
     <!-- 主应用挂载此处-->
     <router-view></router-view>
 
     <!-- 子应用分别挂载盒子 -->
+    <div id="vue-cli3"></div>
     <div id="app1"></div>
     <div id="app2"></div>
+
   </div>
 </template>
 
 <script>
-
+const appList = ['/app1', 'app2', 'vue-cli3']//微服务路由根目录
 export default {
   name: 'App',
   data() {
@@ -28,6 +31,12 @@ export default {
         {
           index: "/",
           name: "主应用",
+          icon: "el-icon-s-home",
+          children: [],
+        },
+        {
+          index: "/vue-cli3",
+          name: "vue-cli3",
           icon: "el-icon-s-home",
           children: [],
         },
@@ -50,6 +59,17 @@ export default {
     // 点击父级菜单
     checkMenu(menuItem) {
       this.$router.push(menuItem.index).catch(() => { })
+    }
+  },
+  computed: {
+    acitveClass() {
+      return (url) => {
+        if (url.length > 1) {
+          return this.$route.path.startsWith(url)
+        } else {
+          return !appList.some(v => this.$route.path.includes(v))
+        }
+      }
     }
   }
 }
@@ -76,10 +96,14 @@ export default {
     &:hover {
       width: 240px;
     }
-    li {
+    .menu-item {
+      color: #fff;
       line-height: 40px;
       height: 40px;
       &:hover {
+        background: #283143;
+      }
+      &.active {
         background: #283143;
       }
     }

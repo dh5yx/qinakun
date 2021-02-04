@@ -22,7 +22,6 @@ Vue.config.productionTip = false;
 
 let router = null;
 let instance = null;
-
 function render(props = {}) {
   const { container } = props;
   router = new VueRouter({

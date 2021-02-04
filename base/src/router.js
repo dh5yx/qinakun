@@ -11,18 +11,18 @@ const routes = [
   {
     path: '/main',
     name: 'main',
-    component: () => import('./views/main/index.vue'),
+    component: () => import(/* webpackChunkName: "main" */ './views/main/index.vue'),
     redirect:{name:'home'},
     children: [
       {
         path: '/home',
         name: 'home',
-        component: () => import('./views/home/index.vue'),
+        component: () => import(/* webpackChunkName: "home" */ './views/home/index.vue'),
       },
       {
         path: '/about',
         name: 'about',
-        component: () => import('./views/about/index.vue'),
+        component: () => import(/* webpackChunkName: "about" */ './views/about/index.vue'),
       },
     ],
   },
