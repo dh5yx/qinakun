@@ -33,7 +33,7 @@ registerMicroApps(
   [
     {
       name: 'vue-app-cli3', //必选 微应用的名称，
-      entry: 'http://localhost:1234', //必选 微应用的入口。
+      entry:  process.env.NODE_ENV === "production" ?'/child/vue-cli3/':'http://localhost:1234', //必选 微应用的入口。
       container: '#vue-cli3', //必选，微应用的容器节点的选择器或者 Element 实例
       activeRule: '/vue-cli3', //必选 微应用的激活规则 支持配置一个 active function 函数或一组 active function。函数会传入当前 location 作为参数，函数返回 true 时表明当前微应用会被激活。如 location => location.pathname.startsWith('/app1')。
       loader() {}, //可选 loading 状态发生变化时会调用的方法。
@@ -44,7 +44,7 @@ registerMicroApps(
     },
     {
       name: 'vue-app1', //必选 微应用的名称，
-      entry: 'http://localhost:7101', //必选 微应用的入口。
+      entry: process.env.NODE_ENV === "production" ?'/child/app1/': 'http://localhost:7101', //必选 微应用的入口。
       container: '#app1', //必选，微应用的容器节点的选择器或者 Element 实例
       activeRule: '/app1', //必选 微应用的激活规则 支持配置一个 active function 函数或一组 active function。函数会传入当前 location 作为参数，函数返回 true 时表明当前微应用会被激活。如 location => location.pathname.startsWith('/app1')。
       loader() {}, //可选 loading 状态发生变化时会调用的方法。
@@ -55,7 +55,7 @@ registerMicroApps(
     },
     {
       name: 'vue-app2',
-      entry: 'http://localhost:7102',
+      entry:  process.env.NODE_ENV === "production" ?'/child/app2/':'http://localhost:7102',
       container: '#app2',
       activeRule: '/app2',
       props: {
@@ -85,7 +85,7 @@ registerMicroApps(
 )
 
 // 启动默认应用  貌似不能再主应用设置重定向
-setDefaultMountApp('/app2')
+// setDefaultMountApp('/app2')
 
 //第一个微应用 mount 后需要调用的方法，比如开启一些监控或者埋点脚本。
 runAfterFirstMounted(() => {

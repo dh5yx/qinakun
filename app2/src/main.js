@@ -6,7 +6,8 @@ import routes from './router';
 
 import "./assets/style/reset.css"
 import "./assets/style/common.scss"
-import "element-ui/lib/theme-chalk/index.css"; // element样式 cdn不用引入
+// import "element-ui/lib/theme-chalk/index.css"; //由于应用微服务，导致打包后字体图标404，暂时没有其他解决方案，采用下面的方式映入 
+import "@/assets/style/element-variables.scss"; //主题修改  使用了自定义主题，不用再单独引入element样式
 
 
 /* element 全部映入 */

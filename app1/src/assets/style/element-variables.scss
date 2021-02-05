@@ -1,0 +1,50 @@
+$--color-primary: teal !default;
+$--color-success: #3a6ac2 !default;
+$--color-warning: #e02197 !default;
+$--color-danger: red !default;
+$--color-info: #d36525 !default;
+
+/* input */
+// $--input-small-height: 100px;
+
+/* Select
+-------------------------- */
+$--select-border-color-hover: red;
+$--select-input-color: orange;
+$--select-option-color: blue;
+$--select-option-selected-font-color: #3a6ac2;
+
+/* Dialog
+-------------------------- */
+// $--dialog-background-color: $--color-white;
+$--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+/// fontSize||Font|1
+// $--dialog-title-font-size: $--font-size-large;
+/// fontSize||Font|1
+$--dialog-content-font-size: 14px;
+/// fontLineHeight||LineHeight|2
+// $--dialog-font-line-height: $--font-line-height-primary;
+/// padding||Spacing|3
+$--dialog-padding-primary: 20px;
+
+/* Table
+-------------------------- */
+/// color||Color|0
+// $--table-border-color: $--border-color-lighter;
+// $--table-border: 1px solid $--table-border-color;
+/// color||Color|0
+$--table-font-color: orange;
+/// color||Color|0
+// $--table-header-font-color: $--color-text-secondary;
+/// color||Color|0
+$--table-row-hover-background-color: teal;
+$--table-row-hover-font-color: #fff;
+$--table-current-row-background-color: pink;
+/// color||Color|0
+// $--table-header-background-color: $--color-white;
+$--table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
