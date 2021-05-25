@@ -1,4 +1,4 @@
-// import './public-path';
+import './public-path';
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
@@ -36,11 +36,6 @@ function render(props = {}) {
   }).$mount(container ? container.querySelector('#app') : '#app')
 }
 
-// webpack打包公共文件路径
-if (window.__POWERED_BY_QIANKUN__) {
-  // eslint-disable-next-line no-undef
-  __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__
-}
 
 // 独立运行
 if (!window.__POWERED_BY_QIANKUN__) {
